@@ -54,6 +54,12 @@ rhel_iso: KICKSTART_FILE=rhel-7.ks
 rhel_iso: rhel_kickstart
 rhel_iso: iso_creation
 
+.PHONY: fedora_iso
+fedora_iso: ISO_NAME=minishift-fedora27
+fedora_iso: KICKSTART_FILE=fedora-27.ks
+fedora_iso: fedora_kickstart
+fedora_iso: iso_creation
+
 .PHONY: centos_kickstart
 centos_kickstart: KICKSTART_FILE=centos-7.ks
 centos_kickstart: KICKSTART_TEMPLATE=centos-7.template
@@ -64,6 +70,11 @@ rhel_kickstart: KICKSTART_FILE=rhel-7.ks
 rhel_kickstart: KICKSTART_TEMPLATE=rhel-7.template
 rhel_kickstart: check_env
 rhel_kickstart: kickstart
+
+.PHONY: fedora_kickstart
+fedora_kickstart: KICKSTART_FILE=fedora-27.ks
+fedora_kickstart: KICKSTART_TEMPLATE=fedora-27.template
+fedora_kickstart: kickstart
 
 .PHONY: kickstart
 kickstart: init
